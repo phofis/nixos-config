@@ -30,9 +30,9 @@
             Host student
                 HostName student.tcs.uj.edu.pl
                 User z1201771
-
             Host *
-                AllowAgentForwarding yes
+                AddKeysToAgent yes
+                IdentityFile ~/.ssh/id_ed25519
         '';
     };
 }
