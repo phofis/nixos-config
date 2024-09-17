@@ -110,6 +110,9 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+  
+  # Enable ssh agent
+  programs.ssh.startAgent = true;
 
   # Install firefox.
   programs.firefox.enable = false;

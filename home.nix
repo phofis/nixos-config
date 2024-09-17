@@ -30,7 +30,7 @@
             Host student
                 HostName student.tcs.uj.edu.pl
                 User z1201771
-                
+
             Host *
                 AllowAgentForwarding yes
         '';
