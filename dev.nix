@@ -9,12 +9,14 @@
      gcc
      clang
      cmake
+     gnumake
 
+     
      postgresql
      docker
      git
      jdk17
-     jdk21
+     jdk22
      python3
     ];
     

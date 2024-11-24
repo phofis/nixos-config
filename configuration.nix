@@ -99,6 +99,7 @@
     description = "Piotr Pasula";
     home = "/home/piotr";
     extraGroups = [ "networkmanager" "input" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -117,11 +118,17 @@
   # Install firefox.
   programs.firefox.enable = false;
 
+  programs.zsh.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  environment.shells = with pkgs; [ zsh ];
+
+  programs.light.enable = true;
+
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
@@ -130,14 +137,24 @@
      spotify
      discord
      libreoffice
-
+     unzip
+     gimp
+     
+     zsh
      neofetch
+     brightnessctl
      htop
      gnome3.gnome-tweaks
      ] ++ (with pkgs.gnomeExtensions; [
+      unlock-dialog-background
       blur-my-shell
       dash-to-dock
   ]);
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "piotr" ];
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.guest.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
